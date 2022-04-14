@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Flexible(
                       flex: 1,
                       child: Image.asset(
-                        'assets/logo.png',
+                        'assets/images/logo.png',
                         height: 160,
                       ),
                     ),
@@ -68,4 +68,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
