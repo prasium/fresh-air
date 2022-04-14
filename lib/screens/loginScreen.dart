@@ -3,6 +3,8 @@ import 'package:fresh_air/utils/authentication.dart';
 import 'package:fresh_air/widgets/googleSignInButton.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/loginScreen';
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }

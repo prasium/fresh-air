@@ -4,6 +4,8 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../widgets/bottomBarScreens.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = '/home';
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -21,10 +23,7 @@ class _HomeState extends State<Home> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Settings()),
-                );
+                Navigator.pushNamed(context, Settings.routeName);
               },
               icon: const Icon(Icons.settings),
             ),
