@@ -74,8 +74,8 @@ class Authentication {
 
   static Future<void> signOut({required BuildContext context}) async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
-
     try {
+      print(googleSignIn.currentUser);
       await googleSignIn.signOut();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(

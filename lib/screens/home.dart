@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
           title: Text('Fresh Air'),
           actions: [
             IconButton(
-              onPressed: () {
+              onPressed: (){
                 Navigator.pushNamed(context, Settings.routeName);
               },
               icon: const Icon(Icons.settings),
