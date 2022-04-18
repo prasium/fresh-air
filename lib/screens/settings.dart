@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_air/screens/loginScreen.dart';
 import '../widgets/options.dart';
 import '../utils/authentication.dart';
 
@@ -30,7 +31,13 @@ class Settings extends StatelessWidget {
                          ),
                 Options(title: 'Log Out',
                   icon: Icons.settings_power,
-                  onTap: () => ()=> Authentication.signOut(context: context),
+                  onTap: () => () async {
+                  final state =  await Authentication.signOut(context: context);
+                  if(state)
+                    {
+                      Navigator.of(context).popAndPushNamed(LoginScreen.routeName);
+                    }
+                }
                 ),
               ],
             ),

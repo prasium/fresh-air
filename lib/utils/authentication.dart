@@ -6,29 +6,25 @@ import 'package:fresh_air/screens/home.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Authentication {
+
   static Future<FirebaseApp> initializeFirebase({
     required BuildContext context,
   }) async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
 
     User? user = FirebaseAuth.instance.currentUser;
-
+    print(user?.email);
     if (user != null) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => Home(),
-        ),
-      );
+      Navigator.of(context).popAndPushNamed(Home.routeName);
     }
     return firebaseApp;
   }
 
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
 
     final GoogleSignIn googleSignIn = GoogleSignIn();
-
+    User? user;
     final GoogleSignInAccount? googleSignInAccount =
         await googleSignIn.signIn();
 
@@ -72,18 +68,23 @@ class Authentication {
     }
   }
 
-  static Future<void> signOut({required BuildContext context}) async {
+  static Future<bool> signOut({required BuildContext context}) async {
+    var state = false;
     final GoogleSignIn googleSignIn = GoogleSignIn();
+    print(googleSignIn.currentUser);
+    print(FirebaseAuth.instance.currentUser);
     try {
-      print(googleSignIn.currentUser);
-      await googleSignIn.signOut();
+      await FirebaseAuth.instance.signOut();
+      state = true;
     } catch (e) {
+      state = false;
       ScaffoldMessenger.of(context).showSnackBar(
         Authentication.customSnackBar(
           content: 'Error signing out. Try again.',
         ),
       );
     }
+    return state;
   }
 
   static SnackBar customSnackBar({required String content}) {
