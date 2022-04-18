@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fresh_air/widgets/aqi_widget.dart';
 
 class BottomBarScreens extends StatelessWidget {
   const BottomBarScreens({
@@ -14,10 +15,7 @@ class BottomBarScreens extends StatelessWidget {
     List<Widget> pages = [
       Container(
         alignment: Alignment.center,
-        child: Text(
-          "Home",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
+        child: AQIWidget(),
       ),
       Container(
         alignment: Alignment.center,
