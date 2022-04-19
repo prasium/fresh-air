@@ -37,17 +37,28 @@ class AQCard extends StatelessWidget {
                       ),
                       Expanded(
                         child: Card(
+                          color: double.parse(pm25) < 90.0
+                              ? (double.parse(pm25) < 60.0
+                                  ? (double.parse(pm25) < 30.0
+                                      ? Color(0xFF00FF00)
+                                      : Color(0xFFB6D7A8))
+                                  : Color(0xFFFFD966))
+                              : (double.parse(pm25) < 250.0
+                                  ? (double.parse(pm25) < 120.0
+                                      ? Color(0xFFE69138)
+                                      : Color(0xFFE06666))
+                                  : Color(0xFFFF0000)),
                           child: Center(
-                              child: Text(
-                            pm25 + " ug/m^3 ",
-                            style: TextStyle(fontSize: 20),
-                          ),),
+                            child: Text(
+                              pm25 + " ug/m^3 ",
+                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),
+                            ),
+                          ),
                           elevation: 5,
-                          shadowColor: Colors.white38,
                           margin: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 80),
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white, width: 1),
+                            side: BorderSide(color: Colors.indigo, width: 1),
                             borderRadius: BorderRadius.circular(150),
                           ),
                         ),
