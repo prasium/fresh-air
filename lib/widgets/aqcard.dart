@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 class AQCard extends StatelessWidget {
-  final temp, humid, pm25;
+  final temp, humid, pm25, range;
 
-  const AQCard({Key? key, this.temp, this.humid, this.pm25}) : super(key: key);
+  const AQCard({Key? key, this.temp, this.humid, this.pm25, this.range}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,17 +48,29 @@ class AQCard extends StatelessWidget {
                                       ? Color(0xFFE69138)
                                       : Color(0xFFE06666))
                                   : Color(0xFFFF0000)),
-                          child: Center(
-                            child: Text(
-                              pm25 + "\nug/m^3",textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500),
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: Text(
+                                  pm25 + "g\n ug/m^3",textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              SizedBox(height: 5,),
+                              Center(
+                                child: Text(
+                                  range,textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 24,fontStyle: FontStyle.italic,fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                            ],
                           ),
                           elevation: 5,
                           margin: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 80),
+                              vertical: 10, horizontal: 70),
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.indigo, width: 1),
+                            side: BorderSide(color: Colors.black, width: 5),
                             borderRadius: BorderRadius.circular(150),
                           ),
                         ),

@@ -42,10 +42,12 @@ class _AQIWidgetState extends State<AQIWidget> {
         future: fetchAQ(),
         builder: (ctx, snapShot){
           if (snapShot.hasData) {
+            String val = checkRange(double.parse(snapShot.data!.pm25));
             return AQCard(
               humid: snapShot.data!.humidity,
               pm25: snapShot.data!.pm25,
               temp: snapShot.data!.temperature,
+              range: val,
             );
           } else if (snapShot.hasError) {
             return Text('${snapShot.error}');
@@ -54,5 +56,37 @@ class _AQIWidgetState extends State<AQIWidget> {
         },
       ),
     );
+  }
+
+  String checkRange(double pm25) {
+    if(pm25<30)
+      {
+        return 'Good';
+      }
+    else if(pm25>=30 && pm25<60)
+      {
+        return 'Satisfactory';
+      }
+
+    else if(pm25>=60 && pm25<90)
+    {
+      return 'Moderate';
+    }
+
+    else if(pm25>=90 && pm25<120)
+    {
+      return 'Poor';
+    }
+
+    else if(pm25>=120 && pm25<250)
+    {
+      return 'Very Poor';
+    }
+
+    else if(pm25>=250)
+    {
+      return 'Severe';
+    }
+    return '';
   }
 }
