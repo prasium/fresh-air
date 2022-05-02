@@ -32,7 +32,7 @@ class AQCard extends StatelessWidget {
                         "PM2.5 Concentration",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold),
                       ),
                       Expanded(
@@ -50,8 +50,8 @@ class AQCard extends StatelessWidget {
                                   : Color(0xFFFF0000)),
                           child: Center(
                             child: Text(
-                              pm25 + " ug/m^3 ",
-                              style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),
+                              pm25 + "\nug/m^3",textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500),
                             ),
                           ),
                           elevation: 5,
@@ -86,7 +86,7 @@ class AQCard extends StatelessWidget {
                         "Meteorological Factors",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 20,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold),
                       ),
                       Expanded(
@@ -107,7 +107,7 @@ class AQCard extends StatelessWidget {
                                   ),
                                   Text(
                                     temp + " \u2103 ",
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: 24),
                                   ),
                                 ],
                               ),
@@ -141,7 +141,7 @@ class AQCard extends StatelessWidget {
                                   ),
                                   Text(
                                     humid + " %RH ",
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: 24),
                                   ),
                                 ],
                               ),

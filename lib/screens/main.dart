@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_air/screens/loginScreen.dart';
-import 'package:fresh_air/screens/settings.dart';
+import '../screens/loginScreen.dart';
+import '../screens/settings.dart';
+import '../screens/faq.dart';
 
 import 'home.dart';
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Settings.routeName: (context) => Settings(),
         Home.routeName: (context) => Home(),
-        LoginScreen.routeName: (context) => LoginScreen()
+        LoginScreen.routeName: (context) => LoginScreen(),
+        FAQ.routeName: (context) => FAQ(),
       },
       home: LoginScreen(),
     );
